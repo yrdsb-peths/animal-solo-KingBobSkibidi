@@ -17,14 +17,23 @@ public class Apple extends Actor
      * Act - do whatever the apple wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    // speed variable for difficulty
+    int speed = 1;
+    
     public void act()
     {
-        setLocation(getX(), getY() + 2);
+        setLocation(getX(), getY() + speed);
         
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight()){
             world.gameOver();
             world.removeObject(this);
         }
+    }
+    
+    public void setSpeed(int spd)
+    {
+        speed = spd;
     }
 }
